@@ -1,4 +1,4 @@
-# Grid_Game# Grid Game
+# Grid Game
 
 Grid Game is set in a 50 by 50 2-D grid world, given a starting point A on one side of the grid, and an
 ending point B on the other side of the grid. Your objective is to get from point A to point B.

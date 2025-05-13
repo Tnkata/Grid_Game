@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Grid Game</title>
+        <style>
+            body {
+                font-family: sans-serif;
+                padding: 10px;
+            }
+            #status {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+            #grid {
+                display: grid;
+                grid-template-columns: repeat(50, 12px);
+                grid-template-rows: repeat(50, 12px);
+                gap: 1px;
+            }
+            .cell {
+                width: 12px;
+                height: 12px;
+                border: 1px solid white;
+                transition: background-color 0.3s ease;
+            }
+            .Blank {background: #d9d9d9;}
+            .Speeder {background: #f7d358;}
+            .Lava {background: #d9534f;}
+            .Mud {background: #a0522d;}
+
+            .player {border: 6px solid black;}
+            .end {border-right: 10px solid green;}
+            .bar {
+                width: 100%;
+                background: #e0e0e0;
+                border-radius: 5px;
+                overflow: hidden;
+                height: 16px;
+                margin-bottom: 10px;
+            }
+            .fill {
+                height: 100%;
+                transition: width 0.2s ease;
+            }
+            #log {
+                font-size: 16px;
+                margin: 10px 0;
+            }
+            #restartButton {
+                margin-bottom: 10px;
+                padding: 6px 12px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+
+            @keyframes pulse {
+                0% { transform: scale(1); opacity: 1;}
+                50% {transform: scale(1.15); opacity: 0.7;}
+                100% {transform: scale(1); opacity: 1;}
+            }
+
+            .Highlighted {
+                animation: pulse 0.3s ease;
+                box-shadow: 0 0 6px white;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="status">
+            <div>Health: <span id="health">200</span></div>
+            <div class="bar">
+                <div id="healthBar" class="fill" style="background-color: red; width: 100%;"></div>
+            </div>
+            <div>Moves: <span id="moves">450</span></div>
+            <div class="bar">
+                <div id="movesBar" class="fill" style="background-color: green; width:100%;"></div>
+            </div>
+            <div id="log">Last Block: <span id="lastTile"></span></div>
+            <button id="restartButton">Restart Game</button>
+        </div>
+        <div id="grid"></div>
+        <script src="game.js"></script>
+    </body>
+</html>
